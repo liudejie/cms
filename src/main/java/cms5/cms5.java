@@ -8,22 +8,35 @@ public static void main(String[] args) {
 [INFO] --------------------< com.asdf:asdf-senior1-week2 >---------------------
 [INFO] Building asdf-senior1-week2 0.0.1-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
-[INFO] 
-[INFO] >>> jetty-maven-plugin:9.4.2.v20170220:run (default-cli) > test-compile @ asdf-senior1-week2 >>>
-[WARNING] The POM for com.bw:10b-whd-utils:jar:0.0.1-SNAPSHOT is missing, no dependency information available
-[WARNING] The POM for org.mybatis:mybatis:jar:3.2.8 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 0.321 s
-[INFO] Finished at: 2020-01-05T20:06:47+08:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal on project asdf-senior1-week2: Could not resolve dependencies for project com.asdf:asdf-senior1-week2:war:0.0.1-SNAPSHOT: Could not find artifact com.bw:10b-whd-utils:jar:0.0.1-SNAPSHOT -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+Exception in thread "Thread-2" java.lang.NoClassDefFoundError: org/eclipse/jetty/io/ManagedSelector$CloseEndPoints
+	at org.eclipse.jetty.io.ManagedSelector.doStop(ManagedSelector.java:135)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:89)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:142)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:160)
+	at org.eclipse.jetty.io.SelectorManager.doStop(SelectorManager.java:257)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:89)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:142)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:160)
+	at org.eclipse.jetty.client.AbstractHttpClientTransport.doStop(AbstractHttpClientTransport.java:87)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:89)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:142)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:160)
+	at org.eclipse.jetty.client.HttpClient.doStop(HttpClient.java:254)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:89)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:142)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:160)
+	at org.eclipse.jetty.websocket.client.WebSocketClient.doStop(WebSocketClient.java:376)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:89)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:142)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:160)
+	at org.eclipse.jetty.websocket.jsr356.ClientContainer.doStop(ClientContainer.java:214)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:89)
+	at org.eclipse.jetty.util.thread.ShutdownThread.run(ShutdownThread.java:138)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.jetty.io.ManagedSelector$CloseEndPoints
+	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239)
+	... 23 more
 }
 }
